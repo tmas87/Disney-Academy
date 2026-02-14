@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disney Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:'Nunito',sans-serif;
+  background:#f4f7ff;
+  overflow-x:hidden;
+  opacity:0;
+  animation:fadeInBody 1s ease forwards;
+}
+@keyframes fadeInBody { to { opacity:1; } }
+
+/* Reduced header height */
+header {
+  position:relative;
+  height:280px;
+  background:url('assets/banner.jpeg') center/cover no-repeat;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  overflow:hidden;
+  padding-top:20px;
+}
+
+/* Cloud Parallax */
+.cloud {
+  position:absolute;
+  background:white;
+  border-radius:50px;
+  opacity:0.8;
+  filter:blur(1px);
+  animation:floatCloud 40s linear infinite;
+}
+.cloud:before, .cloud:after {
+  content:"";
+  position:absolute;
+  background:white;
+  border-radius:50%;
+}
+.cloud1 { width:120px;height:60px;top:40px;left:-150px; }
+.cloud1:before { width:60px;height:60px;top:-20px;left:10px; }
+.cloud1:after { width:70px;height:70px;top:-30px;right:10px; }
+
+.cloud2 { width:180px;height:70px;bottom:50px;left:-200px;animation-duration:60s; }
+.cloud2:before { width:80px;height:80px;top:-30px;left:20px; }
+.cloud2:after { width:90px;height:90px;top:-40px;right:20px; }
+
+@keyframes floatCloud {
+  from { transform:translateX(0); }
+  to { transform:translateX(140vw); }
+}
+
+/* Logo moved to top */
+.logo-circle {
+  position:absolute;
+  top:20px;
+  right:5%;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  overflow:hidden;
+  border:6px solid #000435;
+  box-shadow:0 0 20px rgba(0,4,53,0.4);
+  transition:transform .4s ease;
+}
+.logo-circle img { width:100%;height:100%;object-fit:cover; }
+.logo-circle:hover { transform:scale(1.08); }
+.logo-circle:hover::after {
+  content:"✨";
+  position:absolute;
+  font-size:30px;
+  top:10px;
+  right:20px;
+  animation:sparkle 1s ease infinite alternate;
+}
+@keyframes sparkle { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+
+nav { background:#000435; padding:12px; text-align:center; }
+nav a { color:white; margin:0 15px; text-decoration:none; font-weight:700; }
+nav a:hover { color:#ffd700; }
+
+section { padding:60px 10%; position:relative; }
+h2 { color:#000435; text-align:center; margin-bottom:30px; }
+
+.wave { position:absolute; top:-1px; left:0; width:100%; }
+
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; }
+.gallery-grid img, .gallery-grid video { width:100%; border-radius:15px; cursor:pointer; transition:transform .3s; }
+.gallery-grid img:hover { transform:scale(1.05); }
+
+.lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:999; }
+.lightbox img { max-width:90%; max-height:80%; border-radius:20px; }
+
+.testimonials { text-align:center; }
+.testimonial { display:none; }
+.testimonial.active { display:block; }
+
+.whatsapp { position:fixed; bottom:20px; right:20px; width:55px; height:55px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:transform .3s; }
+.whatsapp:hover { transform:scale(1.1); }
+
+.reveal { opacity:0; transform:translateY(40px); transition:all .8s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+footer {
+  background:#000435;
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-size:0.95rem;
+}
+
+@media(max-width:768px){ header { height:220px; } .logo-circle { width:110px;height:110px; top:10px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="logo-circle"><img src="assets/Logo.jpeg" alt="Logo"></div>
+</header>
+
+<nav>
+  <a href="#about">About Us</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" class="reveal">
+<h2>About Us</h2>
+<p style="text-align:center;max-width:700px;margin:auto;">
+<p style="text-align: center;">🌟 Vision Statement</p>
+
+<p>At Disney Academy, our vision is to cultivate academically confident, independent, and high-achieving learners who are prepared for lifelong success. We strive to lay a strong educational foundation that empowers every child to reach their fullest potential.</p></br> 
+
+
+<p style="text-align: center;">📚 Mission Statement</p>
+
+<p>At Disney Academy, our mission is to provide a structured, stimulating, and academically enriched early learning environment where excellence is nurtured from the very beginning.</p>
+
+We are committed to:</br>
+<ul>
+<li>Building strong foundations in literacy, numeracy, and critical thinking</li>
+
+<li>Promoting a culture of high expectations and academic achievement</li>
+
+<li>Encouraging curiosity, problem-solving, and independent learning</li>
+
+<li>Using intentional, play-based and inquiry-driven teaching strategies</li>
+
+<li>Partnering with families to support each child’s academic and personal growth..</li>
+</ul>
+</section>
+
+<section id="gallery" style="background:#e9edff;" class="reveal">
+<h2>Gallery</h2>
+<div class="gallery-grid">
+  <img src="assets/gallery1.jpeg" onclick="openLightbox(this.src)">
+  <img src="assets/gallery2.jpeg" onclick="openLightbox(this.src)">
+  <img src="assets/gallery3.jpeg" onclick="openLightbox(this.src)">
+  <img src="assets/gallery4.jpeg" onclick="openLightbox(this.src)">
+  <img src="assets/gallery5.jpeg" onclick="openLightbox(this.src)">
+  <img src="assets/gallery6.jpeg" onclick="openLightbox(this.src)">
+  <img src="assets/gallery7.jpeg" onclick="openLightbox(this.src)">
+  <img src="assets/gallery8.jpeg" onclick="openLightbox(this.src)">
+
+</div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<section id="testimonials" class="testimonials reveal">
+<h2>What Parents Say</h2>
+<div class="testimonial active">"The Best pre-school, the school is supportive and friendly environment. Our child's education here is an investment we value.
+
+We greatly appreciate you Disney academy" - TSAKANI BALOYI</div>
+<div class="testimonial">"Thanks to all the hard-working teachers , I appreciate your dedication to our kids .And making me and my kids to believe in the power of education ....THE SKY IS THE LIMIT." - SANKIE NYEMBE</div>
+<div class="testimonial">"I don't regret taking my beloved kids to this wonderful Academy and I must I am proud of all the Staff at Disney Academy may the Almighty gives you strength to overcome every single challenge that you may come across.#InDisneyAcademyibelieve" - SEDIBENG JN</div>
+<div class="testimonial">"The best preschool in the middle of kasi. The teacher are very committed and there's growth and improvement all the time." - KAGISO TAU</div>
+
+</section>
+
+<section id="contact" style="background:#e9edff;" class="reveal">
+<h2>Contact Us</h2>
+<p style="text-align:center;">📍 Ext.6, 26408 Tilo Street, Soshanguve South, Pretoria</p>
+<iframe 
+  src="https://www.google.com/maps?q=Ext.+6,+26408+Tilo+Street,+Soshanguve+South,+Pretoria,+0152&output=embed" 
+  width="100%" 
+  height="300" 
+  style="border:0;border-radius:15px;" 
+  allowfullscreen 
+  loading="lazy">
+</iframe>
+</section>
+
+<footer>
+  © 2026 Disney Academy. All Rights Reserved.
+</footer>
+
+<a href="https://wa.me/+27714111080" target="_blank" class="whatsapp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="white">
+<path d="M16 0C7.163 0 0 7.163 0 16c0 2.823.74 5.473 2.035 7.777L0 32l8.425-2.21A15.925 15.925 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.86l-.486-.285-4.998 1.312 1.336-4.873-.316-.502A13.267 13.267 0 1129.333 16 13.285 13.285 0 0116 29.333zm7.353-9.993c-.403-.202-2.383-1.176-2.753-1.31-.37-.135-.64-.202-.91.202-.27.403-1.046 1.31-1.283 1.58-.237.27-.473.303-.876.101-.403-.202-1.703-.628-3.244-2.004-1.2-1.071-2.01-2.394-2.247-2.797-.237-.403-.025-.62.177-.821.182-.181.403-.472.605-.708.202-.237.27-.404.404-.674.135-.27.067-.506-.034-.708-.101-.202-.91-2.192-1.246-3.002-.327-.787-.66-.68-.91-.692l-.775-.014c-.27 0-.708.101-1.08.506-.37.404-1.416 1.382-1.416 3.37 0 1.987 1.45 3.908 1.65 4.178.202.27 2.85 4.35 6.91 6.101.966.416 1.72.665 2.307.852.969.309 1.85.266 2.546.162.777-.116 2.383-.973 2.72-1.912.337-.939.337-1.744.236-1.912-.101-.168-.37-.27-.775-.472z"/>
+</svg>
+</a>
+
+<script>
+// Scroll Reveal
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){ el.classList.add('visible'); }
+  });
+});
+
+// Testimonials Auto Slide
+let tIndex=0;
+const testimonials=document.querySelectorAll('.testimonial');
+setInterval(()=>{
+  testimonials[tIndex].classList.remove('active');
+  tIndex=(tIndex+1)%testimonials.length;
+  testimonials[tIndex].classList.add('active');
+},4000);
+
+// Lightbox
+function openLightbox(src){
+  document.getElementById('lightbox').style.display='flex';
+  document.getElementById('lightbox-img').src=src;
+}
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+}
+</script>
+
+</body>
+</html>
