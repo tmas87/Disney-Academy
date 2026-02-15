@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Successful | Disney Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:'Nunito',sans-serif;
+  background:#f4f7ff;
+  overflow-x:hidden;
+  opacity:0;
+  animation:fadeInBody 1s ease forwards;
+}
+@keyframes fadeInBody { to { opacity:1; } }
+
+/* Header */
+header {
+  position:relative;
+  height:280px;
+  background:url('assets/banner.jpeg') center/cover no-repeat;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  overflow:hidden;
+  padding-top:20px;
+}
+
+/* Clouds */
+.cloud {
+  position:absolute;
+  background:white;
+  border-radius:50px;
+  opacity:0.8;
+  filter:blur(1px);
+  animation:floatCloud 40s linear infinite;
+}
+.cloud:before, .cloud:after {
+  content:"";
+  position:absolute;
+  background:white;
+  border-radius:50%;
+}
+.cloud1 { width:120px;height:60px;top:40px;left:-150px; }
+.cloud1:before { width:60px;height:60px;top:-20px;left:10px; }
+.cloud1:after { width:70px;height:70px;top:-30px;right:10px; }
+
+.cloud2 { width:180px;height:70px;bottom:50px;left:-200px; animation-duration:60s; }
+.cloud2:before { width:80px;height:80px;top:-30px;left:20px; }
+.cloud2:after { width:90px;height:90px;top:-40px;right:20px; }
+
+@keyframes floatCloud {
+  from { transform:translateX(0); }
+  to { transform:translateX(140vw); }
+}
+
+/* Logo */
+.logo-circle {
+  position:absolute;
+  top:20px;
+  right:5%;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  overflow:hidden;
+  border:6px solid #000435;
+  box-shadow:0 0 20px rgba(0,4,53,0.4);
+  transition:transform .4s ease;
+}
+.logo-circle img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.logo-circle:hover { transform:scale(1.08); }
+
+/* Navigation */
+nav {
+  background:#000435;
+  padding:12px;
+  text-align:center;
+}
+nav a {
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:700;
+}
+nav a:hover { color:#ffd700; }
+
+/* Thank You Card */
+.thankyou-container {
+  background:white;
+  max-width:600px;
+  width:90%;
+  margin:60px auto;
+  padding:40px;
+  border-radius:15px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  text-align:center;
+}
+
+.thankyou-container h2 {
+  color:#000435;
+  font-size:2rem;
+  margin-bottom:20px;
+}
+
+.thankyou-container p {
+  font-size:1.1rem;
+  color:#333;
+  margin-bottom:30px;
+}
+
+.thankyou-container a.button {
+  display:inline-block;
+  background:#1E90FF;
+  color:white;
+  padding:14px 28px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+  transition:background .3s;
+}
+.thankyou-container a.button:hover {
+  background:#0b5ed7;
+}
+
+/* Footer */
+footer {
+  background:#000435;
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-size:0.95rem;
+}
+
+/* WhatsApp Button */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  transition:transform .3s;
+}
+.whatsapp:hover { transform:scale(1.1); }
+
+/* Responsive */
+@media(max-width:768px){
+  header { height:220px; }
+  .logo-circle { width:110px;height:110px; top:10px; }
+}
+@media(max-width:480px){
+  .thankyou-container { padding:25px; }
+  .thankyou-container h2 { font-size:1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="logo-circle">
+    <img src="assets/logo.jpeg" alt="Logo">
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="registration.html">Register</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<div class="thankyou-container">
+  <h2>🎉 Registration Successful!</h2>
+  <p>Thank you for registering with Disney Academy.<br>
+  We have received your information and will contact you soon.</p>
+
+  <a href="index.html" class="button">Return to Home</a>
+</div>
+
+<footer id="contact">
+  © 2026 Disney Academy. All Rights Reserved.
+</footer>
+
+<a href="https://wa.me/+27714111080" target="_blank" class="whatsapp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="white">
+<path d="M16 0C7.163 0 0 7.163 0 16c0 2.823.74 5.473 2.035 7.777L0 32l8.425-2.21A15.925 15.925 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.86l-.486-.285-4.998 1.312 1.336-4.873-.316-.502A13.267 13.267 0 1129.333 16 13.285 13.285 0 0116 29.333z"/>
+</svg>
+</a>
+
+</body>
+</html>
