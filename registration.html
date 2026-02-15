@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disney Academy | Registration</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:'Nunito',sans-serif;
+  background:#f4f7ff;
+  overflow-x:hidden;
+  opacity:0;
+  animation:fadeInBody 1s ease forwards;
+}
+@keyframes fadeInBody { to { opacity:1; } }
+
+/* Header with banner and clouds */
+header {
+  position:relative;
+  height:280px;
+  background:url('assets/banner.jpeg') center/cover no-repeat;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  overflow:hidden;
+  padding-top:20px;
+}
+
+.cloud {
+  position:absolute;
+  background:white;
+  border-radius:50px;
+  opacity:0.8;
+  filter:blur(1px);
+  animation:floatCloud 40s linear infinite;
+}
+.cloud:before, .cloud:after {
+  content:"";
+  position:absolute;
+  background:white;
+  border-radius:50%;
+}
+.cloud1 { width:120px;height:60px;top:40px;left:-150px; }
+.cloud1:before { width:60px;height:60px;top:-20px;left:10px; }
+.cloud1:after { width:70px;height:70px;top:-30px;right:10px; }
+.cloud2 { width:180px;height:70px;bottom:50px;left:-200px; animation-duration:60s; }
+.cloud2:before { width:80px;height:80px;top:-30px;left:20px; }
+.cloud2:after { width:90px;height:90px;top:-40px;right:20px; }
+
+@keyframes floatCloud {
+  from { transform:translateX(0); }
+  to { transform:translateX(140vw); }
+}
+
+/* Logo */
+.logo-circle {
+  position:absolute;
+  top:20px;
+  right:5%;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  overflow:hidden;
+  border:6px solid #000435;
+  box-shadow:0 0 20px rgba(0,4,53,0.4);
+  transition:transform .4s ease;
+}
+.logo-circle img { width:100%; height:100%; object-fit:cover; }
+.logo-circle:hover { transform:scale(1.08); }
+
+/* Navigation */
+nav { background:#000435; padding:12px; text-align:center; position:relative; z-index:100; }
+nav a { color:white; margin:0 15px; text-decoration:none; font-weight:700; }
+nav a:hover { color:#ffd700; }
+
+/* Form container */
+.registration-container {
+  background:white;
+  max-width:500px;
+  width:90%;
+  margin:60px auto 60px auto; /* positive margin avoids nav overlap */
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  position:relative;
+  z-index:1;
+}
+.registration-container h2 {
+  text-align:center;
+  color:#000435;
+  margin-bottom:25px;
+}
+
+/* Form styles */
+.registration-container form label {
+  display:block;
+  margin-bottom:5px;
+  font-weight:700;
+}
+.registration-container form input,
+.registration-container form textarea {
+  display:block;
+  width:100%;
+  padding:12px;
+  margin-bottom:20px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+  box-sizing:border-box;
+}
+.registration-container form button {
+  background:#1E90FF;
+  color:white;
+  padding:14px;
+  font-size:16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  width:100%;
+}
+.registration-container form button:hover {
+  background:#0b5ed7;
+}
+
+/* Footer */
+footer {
+  background:#000435;
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-size:0.95rem;
+}
+
+/* WhatsApp floating button */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  transition:transform .3s;
+}
+.whatsapp:hover { transform:scale(1.1); }
+
+/* Responsive adjustments */
+@media(max-width:768px){
+  header { height:220px; }
+  .logo-circle { width:110px;height:110px; top:10px; }
+}
+@media(max-width:480px){
+  .registration-container { padding:20px; margin:40px auto 40px auto; }
+  .registration-container form input,
+  .registration-container form textarea,
+  .registration-container form button { font-size:14px; padding:10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="logo-circle"><img src="assets/logo.jpeg" alt="Logo"></div>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="#registration">Register</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="registration-container">
+  <h2>Disney Academy Registration</h2>
+  <form action="https://formspree.io/f/mnqwyzld" method="POST">
+    <!-- Redirect to thank you page after submission -->
+    <input type="hidden" name="_next" value="thankyou.html">
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="_replyto" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" min="3" max="18" required>
+
+    <label for="message">Additional Information</label>
+    <textarea id="message" name="message" rows="4" placeholder="Any questions or comments"></textarea>
+
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<footer id="contact">
+  © 2026 Disney Academy. All Rights Reserved.
+</footer>
+
+<a href="https://wa.me/+27714111080" target="_blank" class="whatsapp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="white">
+<path d="M16 0C7.163 0 0 7.163 0 16c0 2.823.74 5.473 2.035 7.777L0 32l8.425-2.21A15.925 15.925 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.86l-.486-.285-4.998 1.312 1.336-4.873-.316-.502A13.267 13.267 0 1129.333 16 13.285 13.285 0 0116 29.333zm7.353-9.993c-.403-.202-2.383-1.176-2.753-1.31-.37-.135-.64-.202-.91.202-.27.403-1.046 1.31-1.283 1.58-.237.27-.473.303-.876.101-.403-.202-1.703-.628-3.244-2.004-1.2-1.071-2.01-2.394-2.247-2.797-.237-.403-.025-.62.177-.821.182-.181.403-.472.605-.708.202-.237.27-.404.404-.674.135-.27.067-.506-.034-.708-.101-.202-.91-2.192-1.246-3.002-.327-.787-.66-.68-.91-.692l-.775-.014c-.27 0-.708.101-1.08.506-.37.404-1.416 1.382-1.416 3.37 0 1.987 1.45 3.908 1.65 4.178.202.27 2.85 4.35 6.91 6.101.966.416 1.72.665 2.307.852.969.309 1.85.266 2.546.162.777-.116 2.383-.973 2.72-1.912.337-.939.337-1.744.236-1.912-.101-.168-.37-.27-.775-.472z"/>
+</svg>
+</a>
+
+</body>
+</html>
